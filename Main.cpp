@@ -1,10 +1,11 @@
-//============================================================================
-// Name        : CS.cpp
-// Author      : 
-// Version     :
-// Copyright   : 
-// Description : Hello World in C++, Ansi-style
-//============================================================================
+/******************************************************************************
+ * Name        : main.cpp
+ * Author      : Christine Nguyen
+ * Description : This program evaluates expressions in Postfix notation.
+ *               The program has a class to store the expression and the
+ *               calculated result. The class also has an Eval function that
+ *               parses the input expression and calculate the result.
+ *****************************************************************************/
 
 #include "Postfix.h"
 #include <iostream>
