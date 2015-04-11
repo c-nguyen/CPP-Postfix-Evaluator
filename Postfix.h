@@ -1,9 +1,11 @@
-/*
- * Postfix.h
- *
- *  Created on: Apr 9, 2015
- *      Author: Christine
- */
+/******************************************************************************
+ * Name        : Postfix.h
+ * Author      : Christine Nguyen
+ * Description : This program evaluates expressions in Postfix notation.
+ *               The program has a class to store the expression and the
+ *               calculated result. The class also has an Eval function that
+ *               parses the input expression and calculate the result.
+ *****************************************************************************/
 
 #ifndef SRC_POSTFIX_H_
 #define SRC_POSTFIX_H_
