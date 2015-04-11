@@ -15,17 +15,37 @@ void Postfix::setEquation(string eq) {
 }
 
 double Postfix::evaluate() {
-    int i = 0;
+	// Declare stack to hold numbers
+	stack<double> operands;
+	// i = index of string
+	int i = 0;
+	// While the end of the string has not been reached
     while (equation[i] != '\0') {
+    	// cursor = current character of string
         char cursor = equation[i];
-        if (isspace(cursor))
+        // If cursor is a space - move to next character
+        if (isspace(cursor)) {
             i++;
-        else if (isdigit(cursor))
-            operands.push(cursor);
+        }
+        // If cursor is a number - convert to double and push onto stack
+        else if (isdigit(cursor)) {
+        	string number = "";
+        	while (!isspace(cursor)) {
+        		number += cursor;
+        	    i++;
+        	    cursor = equation[i];
+        	}
+        	operands.push(atof(number.c_str()));
+            i++;
+        }
+        // If cursor is an operation - pop 2 numbers off stack and do
+        // the operation specified
         else {
-            int answer;
-            int first = operands.pop();
-            int second = operands.pop();
+            double answer;
+            double first = operands.top();
+            operands.pop();
+            double second = operands.top();
+            operands.pop();
 
             switch(cursor) {
                 case '+':
@@ -41,9 +61,11 @@ double Postfix::evaluate() {
                     answer = second / first;
                     break;
             }
+            // Push the answer onto the stack
             operands.push(answer);
+            i++;
         }
-        i++;
     }
-    return operands.pop();
+    // Return the answer
+    return operands.top();
 }
