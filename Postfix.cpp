@@ -79,7 +79,7 @@ double Postfix::evaluate() {
 			// the operation specified
 			else {
 				// If there is a problem with the input equation
-				// Return a nullptr
+				// Return a NULL
 				if (operands.size() < 2)
 					return NULL;
 
@@ -113,6 +113,6 @@ double Postfix::evaluate() {
 		return operands.top();
 	// Catch any unforeseen exceptions
 	} catch (...) {
-		cerr << "There is a problem with your equation.";
+		return NULL;
 	}
 }
