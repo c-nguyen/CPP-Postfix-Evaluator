@@ -6,23 +6,45 @@
  *               calculated result. The class also has an Eval function that
  *               parses the input expression and calculate the result.
  *****************************************************************************/
-
 #include "Postfix.h"
 #include <iostream>
 #include <string>
+
 using namespace std;
 
 int main() {
+	// Define an instance of the class
 	Postfix calculator;
+	// equation = user input equation
 	string equation;
+	// isOkay = is equation valid
+	bool isOkay = false;
 
-	cout << "Enter an expression in Postfix notation: ";
-	getline(cin, equation);
+	// While equation is not valid, keep asking for input
+	while (!isOkay) {
+		// Prompt user to enter an equation
+		cout << "\nEnter an expression in Postfix notation: ";
+		// Get the entire line
+		getline(cin, equation);
 
-	cout << "equation is " << equation;
+		// Set the equation in the class
+		calculator.setEquation(equation);
 
-	calculator.setEquation(equation);
-	cout << "The answer is " << calculator.evaluate() << ".";
-
+		// If there are no errors
+		if (calculator.checkError() == true) {
+			// Calculate the answer
+			double answer = calculator.evaluate();
+			// If answer is null, equation is not valid
+			if (answer == NULL)
+				cout << "You have entered an invalid expression. Try Again." << endl;
+			// Else, print out answer and end loop
+			else {
+				cout << "The answer is " << answer << ".";
+				isOkay = true;
+			}
+		// Else (there are errors), go to beginning of loop
+		} else
+			cout << "You have entered an invalid expression. Try Again." << endl;
+	}
 	return 0;
 }
