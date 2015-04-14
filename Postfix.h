@@ -7,23 +7,25 @@
  *               parses the input expression and calculate the result.
  *****************************************************************************/
 
-#ifndef SRC_POSTFIX_H_
-#define SRC_POSTFIX_H_
+#ifndef POSTFIX_H_
+#define POSTFIX_H_
 
-#include <string>
-#include <stack>
-#include <cctype>
+#include <iostream>
+#include <string>  // For strings
+#include <stack>   // For stack functions
+#include <cctype>  // For character manipulation
+#include <cstdlib> // For atoi function
 
 using namespace std;
 
 class Postfix {
     public:
         string equation;
-        stack<int> operands;
         Postfix();
         virtual ~Postfix();
         void setEquation(string eq);
+        bool checkError();
         double evaluate();
 };
 
-#endif /* SRC_POSTFIX_H_ */
+#endif /* POSTFIX_H_ */
