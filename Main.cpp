@@ -35,7 +35,7 @@ int main() {
 			// Calculate the answer
 			double answer = calculator.evaluate();
 			// If answer is null, equation is not valid
-			if (answer == NULL)
+			if (!answer)
 				cout << "You have entered an invalid expression. Try Again." << endl;
 			// Else, print out answer and end loop
 			else {
