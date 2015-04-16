@@ -9,29 +9,6 @@
 #include "Postfix.h"
 
 //*****************************************************************************
-// Constructor                                                                *
-//*****************************************************************************
-Postfix::Postfix()
-{
-    //ctor
-}
-
-//*****************************************************************************
-// Destructor                                                                 *
-//*****************************************************************************
-Postfix::~Postfix()
-{
-    //dtor
-}
-
-//*****************************************************************************
-// setEquation assigns the string parameter to the global variable (equation).*
-//*****************************************************************************
-void Postfix::setEquation(string eq) {
-    equation = eq;
-}
-
-//*****************************************************************************
 // checkError checks if there is a syntax error in the user's input (equation)*
 // by checking the last character in the equation. The last character should  *
 // be an operand. If it is an operand, then the function returns true, else   *
@@ -74,22 +51,23 @@ double Postfix::evaluate() {
 				}
 				operands.push(atof(number.c_str()));
 				i++;
-			}
-			// If cursor is an operation - pop 2 numbers off stack and do
-			// the operation specified
-			else {
+			// Else if cursor is an operation
+			} else if (cursor == '+' || cursor == '-' || cursor == '*' ||
+					cursor == '/') {
 				// If there is a problem with the input equation
-				// Return a NULL
+				// Return a nullptr
 				if (operands.size() < 2)
 					return NULL;
 
 				// Else do the operations
+				// Pop off top 2 numbers from stack
 				double answer;
 				double first = operands.top();
 				operands.pop();
 				double second = operands.top();
 				operands.pop();
 
+				// Determine and execute operation
 				switch(cursor) {
 					case '+':
 						answer = second + first;
@@ -106,6 +84,9 @@ double Postfix::evaluate() {
 				}
 				// Push the answer onto the stack
 				operands.push(answer);
+				i++;
+			// Else if cursor is not a space, digit, or operand
+			} else {
 				i++;
 			}
 		}
