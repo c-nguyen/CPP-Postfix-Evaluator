@@ -20,12 +20,12 @@ using namespace std;
 
 class Postfix {
     public:
-        string equation;
-        Postfix();
-        virtual ~Postfix();
         void setEquation(string eq);
         bool checkError();
         double evaluate();
+        
+    private:
+        string equation;
 };
 
 #endif /* POSTFIX_H_ */
