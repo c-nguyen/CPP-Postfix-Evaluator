@@ -20,10 +20,11 @@ using namespace std;
 
 class Postfix {
     public:
-        void setEquation(string eq);
+        void setEquation(string eq)
+        	{ equation = eq; }
         bool checkError();
         double evaluate();
-        
+
     private:
         string equation;
 };
