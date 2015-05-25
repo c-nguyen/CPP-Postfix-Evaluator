@@ -1,4 +1,4 @@
-# CPP-Postfix-Evaluator
+# Postfix-Evaluator
 
 This is the first assignment in the class C++ Programming (CS 256).
 
