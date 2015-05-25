@@ -2,7 +2,7 @@
 
 This is the first assignment in the class C++ Programming (CS 256).
 
-Start: 4/13/2015
+Start: 4/13/2015<br>
 Finish: 4/15/2015
 
 Assignment Details
